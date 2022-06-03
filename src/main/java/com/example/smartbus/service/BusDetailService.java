@@ -8,9 +8,9 @@ import java.util.List;
 public interface BusDetailService {
     List<BusDetail> findAll();
 
-    List<BusDetail> findById(String id);
+    List<BusDetail> findById(String number);
 
-    CommonResult deleteById(String id);
+    CommonResult deleteById(String number);
 
     CommonResult insert(BusDetail busDetail);
 

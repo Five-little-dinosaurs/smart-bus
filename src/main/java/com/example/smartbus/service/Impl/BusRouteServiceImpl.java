@@ -22,12 +22,12 @@ public class BusRouteServiceImpl implements BusRouteService {
     }
 
     @Override
-    public List<BusRoute> findById(String busrouteid) {
+    public List<BusRoute> findById(int busrouteid) {
         return busRouteMapper.findById(busrouteid);
     }
 
     @Override
-    public CommonResult deleteById(String busrouteid) {
+    public CommonResult deleteById(int busrouteid) {
         CommonResult commonResult = new CommonResult();
         try {
             int res = busRouteMapper.deleteById(busrouteid);
@@ -79,5 +79,10 @@ public class BusRouteServiceImpl implements BusRouteService {
             commonResult.setMsg(e.toString());
             return commonResult;
         }
+    }
+
+    @Override
+    public List<BusRoute> findByNumber(String number) {
+        return busRouteMapper.findByNumber(number);
     }
 }

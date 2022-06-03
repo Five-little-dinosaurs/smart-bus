@@ -11,11 +11,13 @@ public interface BusRouteMapper {
 
     List<BusRoute> findAll();
 
-    List<BusRoute> findById(String busrouteid);
+    List<BusRoute> findById(int busrouteid);
 
     int insert(BusRoute admin) throws DataAccessException;
 
-    int deleteById(String busrouteid);
+    int deleteById(int busrouteid);
 
     int update(BusRoute admin) throws DataAccessException;
+
+    List<BusRoute> findByNumber(String number);
 }

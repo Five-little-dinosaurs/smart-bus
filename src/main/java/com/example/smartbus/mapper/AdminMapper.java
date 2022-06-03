@@ -12,7 +12,7 @@ public interface AdminMapper {
 
     List<Admin> findAll();
 
-    List<Admin> findById(String id);
+    List<Admin> findById(int id);
 
     int insert(Admin admin) throws DataAccessException;
 

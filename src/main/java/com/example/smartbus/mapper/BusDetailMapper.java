@@ -9,9 +9,9 @@ import java.util.List;
 public interface BusDetailMapper {
     List<BusDetail> findAll();
 
-    List<BusDetail> findById(String id);
+    List<BusDetail> findById(String number);
 
-    int deleteById(String id);
+    int deleteById(String number);
 
     int insert(BusDetail busDetail);
 

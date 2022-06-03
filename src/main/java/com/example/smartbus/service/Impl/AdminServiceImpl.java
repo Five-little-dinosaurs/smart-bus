@@ -82,7 +82,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<Admin> findById(String aid) {
+    public List<Admin> findById(int aid) {
         return adminMapper.findById(aid);
     }
 

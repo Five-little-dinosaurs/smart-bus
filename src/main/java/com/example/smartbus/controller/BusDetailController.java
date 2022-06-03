@@ -20,14 +20,14 @@ public class BusDetailController {
         return busDetailService.findAll();
     }
 
-    @GetMapping("/{id}")
-    public List<BusDetail> findById(@PathVariable("id") String id) {
-        return busDetailService.findById(id);
+    @GetMapping("/{number}")
+    public List<BusDetail> findById(@PathVariable("number") String number) {
+        return busDetailService.findById(number);
     }
 
-    @DeleteMapping("/{id}")
-    public CommonResult deleteById(@PathVariable("id") String id) {
-        return busDetailService.deleteById(id);
+    @DeleteMapping("/{number}")
+    public CommonResult deleteById(@PathVariable("number") String number) {
+        return busDetailService.deleteById(number);
     }
 
     @PostMapping

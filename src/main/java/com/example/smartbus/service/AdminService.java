@@ -13,7 +13,7 @@ public interface AdminService {
 
     List<Admin> findAll();
 
-    List<Admin> findById(String aid);
+    List<Admin> findById(int aid);
 
     Admin findByAccount(String account);
 

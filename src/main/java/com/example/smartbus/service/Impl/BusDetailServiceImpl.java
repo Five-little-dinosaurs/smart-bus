@@ -23,15 +23,15 @@ public class BusDetailServiceImpl implements BusDetailService {
     }
 
     @Override
-    public List<BusDetail> findById(String id) {
-        return busDetailMapper.findById(id);
+    public List<BusDetail> findById(String number) {
+        return busDetailMapper.findById(number);
     }
 
     @Override
-    public CommonResult deleteById(String id) {
+    public CommonResult deleteById(String number) {
         CommonResult commonResult = new CommonResult();
         try {
-            int res = busDetailMapper.deleteById(id);
+            int res = busDetailMapper.deleteById(number);
             if (res == 1) {
                 commonResult.setStatus("OK");
             } else {

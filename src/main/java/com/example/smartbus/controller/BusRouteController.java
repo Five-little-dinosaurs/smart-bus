@@ -21,13 +21,17 @@ public class BusRouteController {
     }
 
     @GetMapping("/{id}")
-    public List<BusRoute> findById(@PathVariable("id") String id) {
+    public List<BusRoute> findById(@PathVariable("id") int id) {
         return busRouteService.findById(id);
     }
 
+    @GetMapping("/{number}")
+    public List<BusRoute> findByNumber(@PathVariable("number") String number) {
+        return busRouteService.findByNumber(number);
+    }
 
     @DeleteMapping("/{id}")
-    public CommonResult deleteById(@PathVariable("id") String id) {
+    public CommonResult deleteById(@PathVariable("id") int id) {
         return busRouteService.deleteById(id);
     }
 

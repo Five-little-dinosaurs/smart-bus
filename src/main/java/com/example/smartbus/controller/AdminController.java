@@ -22,7 +22,7 @@ public class AdminController {
     }
 
     @GetMapping("/{aid}")
-    public List<Admin> findById(@PathVariable("aid") String aid) {
+    public List<Admin> findById(@PathVariable("aid") int aid) {
         return adminService.findById(aid);
     }
 
