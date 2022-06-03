@@ -1,5 +1,6 @@
 package com.example.smartbus.service.Impl;
 
+import com.example.smartbus.dto.UserDto;
 import com.example.smartbus.entity.User;
 import com.example.smartbus.mapper.AdminMapper;
 import com.example.smartbus.mapper.UserMapper;
@@ -32,5 +33,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findByName(String name) {
         return userMapper.findByName(name);
+    }
+
+    @Override
+    public List<UserDto> findAllDetail() {
+        return userMapper.findAllDetail();
     }
 }

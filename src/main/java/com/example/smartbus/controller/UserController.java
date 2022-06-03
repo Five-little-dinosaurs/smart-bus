@@ -1,6 +1,7 @@
 package com.example.smartbus.controller;
 
 import com.example.smartbus.dto.CommonResult;
+import com.example.smartbus.dto.UserDto;
 import com.example.smartbus.entity.Admin;
 import com.example.smartbus.entity.User;
 import com.example.smartbus.service.UserService;
@@ -19,6 +20,11 @@ public class UserController {
     @GetMapping
     public List<User> findAll() {
         return userService.findAll();
+    }
+
+    @GetMapping("/userdetail")
+    public List<UserDto> findAllDetail() {
+        return userService.findAllDetail();
     }
 
     @GetMapping("/{id}")

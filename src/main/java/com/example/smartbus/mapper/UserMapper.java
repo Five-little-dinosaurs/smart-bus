@@ -1,5 +1,6 @@
 package com.example.smartbus.mapper;
 
+import com.example.smartbus.dto.UserDto;
 import com.example.smartbus.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -14,4 +15,6 @@ public interface UserMapper {
     User findByAccount(String account);
 
     User findByName(String name);
+
+    List<UserDto> findAllDetail();
 }

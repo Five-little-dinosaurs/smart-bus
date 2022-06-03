@@ -10,16 +10,23 @@
     <select id="findById" parameterType="int" resultType="com.example.smartbus.entity.User">
         select *
         from user
-        where id=#{id}
+        where id = #{id}
     </select>
     <select id="findByAccount" parameterType="string" resultType="com.example.smartbus.entity.User">
         select *
         from user
-        where account=#{account}
+        where account = #{account}
     </select>
     <select id="findByName" parameterType="string" resultType="com.example.smartbus.entity.User">
         select *
         from user
-        where name=#{name}
+        where name = #{name}
+    </select>
+    <select id="findAllDetail" resultType="com.example.smartbus.dto.UserDto">
+        select name, region, f.thing, punishment, status
+        from user
+                 left join feedback f on user.id = f.user_id
+                 left join user_detail on user.id = user_detail.id
+                 left join user_violate uv on user.id = uv.user_id
     </select>
 </mapper>
