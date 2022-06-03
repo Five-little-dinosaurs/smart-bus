@@ -26,7 +26,7 @@
         SELECT *
         from admin
     </select>
-    <select id="findById" parameterType="string" resultMap="AdminResultMap">
+    <select id="findById" parameterType="int" resultMap="AdminResultMap">
         SELECT *
         from admin
         where id = #{id}

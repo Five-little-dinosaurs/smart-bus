@@ -19,16 +19,16 @@
         </set>
         where id = #{id}
     </update>
-    <delete id="deleteById" parameterType="string">
+    <delete id="deleteById" parameterType="int">
         delete
         from bus_route
         where id = #{id}
     </delete>
-    <select id="findAll" resultType="com.example.smartbus.entity.BusRoute">
+    <select id="findAll" resultMap="BusRouteResultMap">
         SELECT *
         from bus_route
     </select>
-    <select id="findById" parameterType="string" resultType="com.example.smartbus.entity.BusRoute">
+    <select id="findById" parameterType="int" resultMap="BusRouteResultMap">
         SELECT *
         from bus_route
         where id = #{id}
