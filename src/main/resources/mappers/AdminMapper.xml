@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.smartbus.mapper.AdminMapper">
+    <insert id="insert" parameterType="com.example.smartbus.entity.Admin">
+        insert into admin
+            (name, account, password)
+        values (#{name}, #{account}, #{password})
+    </insert>
+    <update id="update" parameterType="com.example.smartbus.entity.Admin">
+        update admin
+        <set>
+            <if test="name != null and name != ''">aname=#{name},</if>
+            <if test="account != null and account != ''">account=#{account},</if>
+            <if test="password != null and password != ''">password=#{password},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="findAdminByAccount" parameterType="string" resultMap="AdminResultMap">
+        SELECT *
+        from admin
+        where account = #{account}
+    </select>
+    <select id="findAll" resultMap="AdminResultMap">
+        SELECT *
+        from admin
+    </select>
+    <select id="findById" parameterType="string" resultMap="AdminResultMap">
+        SELECT *
+        from admin
+        where id = #{id}
+    </select>
+    <resultMap id="AdminResultMap" type="com.example.smartbus.entity.Admin">
+        <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+        <!-- property：主键在pojo中的属性名 -->
+        <!-- column：主键在数据库中的列名 -->
+        <id property="id" column="id"/>
+        <!-- 定义普通属性 -->
+        <result property="account" column="account"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+
+</mapper>
