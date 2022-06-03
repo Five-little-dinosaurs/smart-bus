@@ -19,4 +19,6 @@ public interface DriverMapper {
     int deleteById(int id);
 
     int update(Driver admin) throws DataAccessException;
+
+    int updateByBusNum(Driver driver);
 }

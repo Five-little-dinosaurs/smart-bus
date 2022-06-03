@@ -33,6 +33,11 @@ public class DriverController {
         return driverService.deleteById(id);
     }
 
+    @PutMapping("/updateByBusNum")
+    public CommonResult updateByBusNum(@RequestBody Driver driver) {
+        return driverService.updateByBusNum(driver);
+    }
+
     @PostMapping
     public CommonResult insert(@RequestBody Driver driver) {
         return driverService.insert(driver);

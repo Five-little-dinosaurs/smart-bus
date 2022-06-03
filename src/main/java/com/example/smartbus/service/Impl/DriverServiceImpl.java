@@ -45,6 +45,24 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
+    public CommonResult updateByBusNum(Driver driver) {
+        CommonResult commonResult = new CommonResult();
+        try {
+            int res = driverMapper.updateByBusNum(driver);
+            if (res == 1) {
+                commonResult.setStatus("OK");
+            } else {
+                commonResult.setStatus("Failed");
+            }
+            return commonResult;
+        } catch (DataAccessException e) {
+            commonResult.setStatus("Failed");
+            commonResult.setMsg(e.toString());
+            return commonResult;
+        }
+    }
+
+    @Override
     public CommonResult insert(Driver driver) {
         CommonResult commonResult = new CommonResult();
         try {

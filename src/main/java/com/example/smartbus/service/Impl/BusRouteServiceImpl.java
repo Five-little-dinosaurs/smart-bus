@@ -4,6 +4,7 @@ import com.example.smartbus.dto.BusRouteDto;
 import com.example.smartbus.dto.CommonResult;
 import com.example.smartbus.entity.BusRoute;
 import com.example.smartbus.mapper.BusRouteMapper;
+import com.example.smartbus.mapper.DriverMapper;
 import com.example.smartbus.service.BusRouteService;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -16,10 +17,18 @@ public class BusRouteServiceImpl implements BusRouteService {
 
     @Resource
     BusRouteMapper busRouteMapper;
-
+    @Resource
+    DriverMapper driverMapper;
     @Override
     public List<BusRouteDto> findAll() {
-        return busRouteMapper.findAll();
+        List<BusRouteDto> busRouteDtos = busRouteMapper.findAll();
+        for (BusRouteDto b: busRouteDtos
+             ) {
+            if (driverMapper.findById(b.getDriverId()).size()!=0) {
+                b.setDriverName(driverMapper.findById(b.getDriverId()).get(0).getName());
+            }
+        }
+        return busRouteDtos;
     }
 
     @Override

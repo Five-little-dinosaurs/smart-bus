@@ -33,4 +33,14 @@
         from driver
         where id = #{id}
     </delete>
+    <select id="findById" parameterType="int" resultMap="DriverResultMap">
+        SELECT *
+        from driver
+        where id = #{id}
+    </select>
+    <update id="updateByBusNum">
+        update driver
+        set bus_num=null
+        where bus_num=#{busNum}
+    </update>
 </mapper>

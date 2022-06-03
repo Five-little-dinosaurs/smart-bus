@@ -14,6 +14,8 @@ public interface DriverService {
 
     CommonResult deleteById(int id);
 
+    CommonResult updateByBusNum(Driver driver);
+
     CommonResult insert(Driver driver);
 
     CommonResult update(Driver driver);

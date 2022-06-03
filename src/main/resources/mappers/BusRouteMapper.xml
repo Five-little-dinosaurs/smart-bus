@@ -50,9 +50,8 @@
     </resultMap>
 
     <select id="findAll" resultMap="BusRouteResultMap">
-        select bus_route.id,bus_route.name,bus_route.number,bus_route.driver_id,bus_route.state_list,driver.name AS driverName
-        FROM bus_route,driver
-        WHERE bus_route.driver_id=driver.id
+        select bus_route.id,bus_route.name,bus_route.number,bus_route.driver_id,bus_route.state_list
+        FROM bus_route
     </select>
 
 </mapper>
