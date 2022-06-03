@@ -23,13 +23,13 @@ public class DriverController {
     }
 
     @GetMapping("/{id}")
-    public List<Driver> findById(@PathVariable("id") String id) {
+    public List<Driver> findById(@PathVariable("id") int id) {
         return driverService.findById(id);
     }
 
 
     @DeleteMapping("/{id}")
-    public CommonResult deleteById(@PathVariable("id") String id) {
+    public CommonResult deleteById(@PathVariable("id") int id) {
         return driverService.deleteById(id);
     }
 

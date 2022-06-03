@@ -7,16 +7,30 @@
         <result property="name" column="name"/>
         <result property="cardNum" column="card_num"/>
         <result property="photo" column="photo"/>
+        <result property="busNum" column="bus_num"/>
     </resultMap>
     <insert id="insert" parameterType="com.example.smartbus.entity.Driver">
         insert into driver
             (name, card_num, photo)
         values (#{name}, #{cardNum}, #{photo})
     </insert>
-
+    <update id="update">
+        update driver
+        <set>
+            <if test="name != null and name != ''">name=#{name},</if>
+            <if test="cardNum != null and cardNum != ''">card_num=#{cardNum},</if>
+            <if test="photo != null and photo != ''">photo=#{photo},</if>
+            <if test="busNum != null and busNum != ''">bus_num=#{busNum},</if>
+        </set>
+        where id = #{id}
+    </update>
     <select id="findAll" resultMap="DriverResultMap">
         SELECT *
         from driver
     </select>
-
+    <delete id="deleteById" parameterType="int">
+        delete
+        from driver
+        where id = #{id}
+    </delete>
 </mapper>

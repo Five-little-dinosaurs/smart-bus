@@ -10,9 +10,9 @@ public interface DriverService {
 
     List<Driver> findAll();
 
-    List<Driver> findById(String id);
+    List<Driver> findById(int id);
 
-    CommonResult deleteById(String id);
+    CommonResult deleteById(int id);
 
     CommonResult insert(Driver driver);
 

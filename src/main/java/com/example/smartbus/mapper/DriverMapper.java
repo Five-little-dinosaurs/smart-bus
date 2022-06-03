@@ -12,11 +12,11 @@ public interface DriverMapper {
 
     List<Driver> findAll();
 
-    List<Driver> findById(String id);
+    List<Driver> findById(int id);
 
     int insert(Driver admin) throws DataAccessException;
 
-    int deleteById(String id);
+    int deleteById(int id);
 
     int update(Driver admin) throws DataAccessException;
 }

@@ -22,13 +22,26 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public List<Driver> findById(String id) {
+    public List<Driver> findById(int id) {
         return driverMapper.findById(id);
     }
 
     @Override
-    public CommonResult deleteById(String id) {
-        return null;
+    public CommonResult deleteById(int id) {
+        CommonResult commonResult = new CommonResult();
+        try {
+            int res = driverMapper.deleteById(id);
+            if (res == 1) {
+                commonResult.setStatus("OK");
+            } else {
+                commonResult.setStatus("Failed");
+            }
+            return commonResult;
+        } catch (DataAccessException e) {
+            commonResult.setStatus("Failed");
+            commonResult.setMsg(e.toString());
+            return commonResult;
+        }
     }
 
     @Override
@@ -51,6 +64,19 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public CommonResult update(Driver driver) {
-        return null;
+        CommonResult commonResult = new CommonResult();
+        try {
+            int res = driverMapper.update(driver);
+            if (res == 1) {
+                commonResult.setStatus("OK");
+            } else {
+                commonResult.setStatus("Failed");
+            }
+            return commonResult;
+        } catch (DataAccessException e) {
+            commonResult.setStatus("Failed");
+            commonResult.setMsg(e.toString());
+            return commonResult;
+        }
     }
 }
