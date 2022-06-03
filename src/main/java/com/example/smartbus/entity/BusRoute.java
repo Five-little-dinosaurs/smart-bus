@@ -5,7 +5,7 @@ public class BusRoute {
 
   private int id;
   private String name;
-  private int number;
+  private String number;
   private int driverId;
   private String stateList;
   private String waitList;
@@ -30,11 +30,11 @@ public class BusRoute {
   }
 
 
-  public int getNumber() {
+  public String getNumber() {
     return number;
   }
 
-  public void setNumber(int number) {
+  public void setNumber(String number) {
     this.number = number;
   }
 

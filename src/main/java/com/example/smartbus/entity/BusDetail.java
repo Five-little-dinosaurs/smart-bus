@@ -3,17 +3,17 @@ package com.example.smartbus.entity;
 
 public class BusDetail {
 
-  private int number;
+  private String number;
   private String nowState;
   private String count;
   private int status;
 
 
-  public int getNumber() {
+  public String getNumber() {
     return number;
   }
 
-  public void setNumber(int number) {
+  public void setNumber(String number) {
     this.number = number;
   }
 
