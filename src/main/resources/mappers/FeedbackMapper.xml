@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.smartbus.mapper.FeedbackMapper">
+    <insert id="insert"></insert>
+    <update id="update">
+        update driver
+        <set>
+            <if test="time != null and time != ''">time=#{time},</if>
+            <if test="thing != null and thing != ''">thing=#{thing},</if>
+            <if test="status != null and status != ''">status=#{status},</if>
+        </set>
+        where user_id = #{userId}
+    </update>
+    <delete id="deleteByUserId"></delete>
+
+
+    <select id="findAll" resultType="com.example.smartbus.entity.Feedback"></select>
+    <select id="findByUserId" resultType="com.example.smartbus.entity.Feedback"></select>
+</mapper>
