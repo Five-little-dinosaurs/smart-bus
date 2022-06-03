@@ -6,7 +6,6 @@ public class UserDetail {
   private int id;
   private String region;
   private String cardNum;
-  private String tag;
 
 
   public int getId() {
@@ -35,13 +34,5 @@ public class UserDetail {
     this.cardNum = cardNum;
   }
 
-
-  public String getTag() {
-    return tag;
-  }
-
-  public void setTag(String tag) {
-    this.tag = tag;
-  }
 
 }
