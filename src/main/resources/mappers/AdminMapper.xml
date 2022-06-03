@@ -10,7 +10,7 @@
     <update id="update" parameterType="com.example.smartbus.entity.Admin">
         update admin
         <set>
-            <if test="name != null and name != ''">aname=#{name},</if>
+            <if test="name != null and name != ''">name=#{name},</if>
             <if test="account != null and account != ''">account=#{account},</if>
             <if test="password != null and password != ''">password=#{password},</if>
         </set>

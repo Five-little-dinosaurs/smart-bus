@@ -7,6 +7,44 @@
             (name, number, driver_id)
         values (#{name}, #{number}, #{driverId})
     </insert>
-
+    <update id="update">
+        update bus_route
+        <set>
+            <if test="name != null and name != ''">name=#{name},</if>
+            <if test="number != null and number != ''">number=#{number},</if>
+            <if test="driverId != null and driverId != ''">driver_id=#{driverId},</if>
+            <if test="cash != null and cash != ''">cash=#{cash},</if>
+            <if test="stateList != null and stateList != ''">state_list=#{stateList},</if>
+            <if test="waitList != null and waitList != ''">wait_list=#{waitList},</if>
+        </set>
+        where id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="string">
+        delete
+        from bus_route
+        where id = #{id}
+    </delete>
+    <select id="findAll" resultType="com.example.smartbus.entity.BusRoute">
+        SELECT *
+        from bus_route
+    </select>
+    <select id="findById" parameterType="string" resultType="com.example.smartbus.entity.BusRoute">
+        SELECT *
+        from bus_route
+        where id = #{id}
+    </select>
+    <resultMap id="BusRouteResultMap" type="com.example.smartbus.entity.BusRoute">
+        <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+        <!-- property：主键在pojo中的属性名 -->
+        <!-- column：主键在数据库中的列名 -->
+        <id property="id" column="id"/>
+        <!-- 定义普通属性 -->
+        <result property="name" column="name"/>
+        <result property="number" column="number"/>
+        <result property="driverId" column="driver_id"/>
+        <result property="cash" column="cash"/>
+        <result property="stateList" column="state_list"/>
+        <result property="waitList" column="wait_list"/>
+    </resultMap>
 
 </mapper>

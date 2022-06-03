@@ -18,17 +18,31 @@ public class BusRouteServiceImpl implements BusRouteService {
 
     @Override
     public List<BusRoute> findAll() {
-        return null;
+        return busRouteMapper.findAll();
     }
 
     @Override
     public List<BusRoute> findById(String busrouteid) {
-        return null;
+        return busRouteMapper.findById(busrouteid);
     }
 
     @Override
     public CommonResult deleteById(String busrouteid) {
-        return null;
+        CommonResult commonResult = new CommonResult();
+        try {
+            int res = busRouteMapper.deleteById(busrouteid);
+            if (res == 1) {
+                commonResult.setStatus("OK");
+            } else {
+                commonResult.setStatus("Failed");
+            }
+            return commonResult;
+        } catch (DataAccessException e) {
+            commonResult.setStatus("Failed");
+            commonResult.setMsg(e.toString());
+            return commonResult;
+        }
+
     }
 
     @Override
@@ -51,6 +65,19 @@ public class BusRouteServiceImpl implements BusRouteService {
 
     @Override
     public CommonResult update(BusRoute busRoute) {
-        return null;
+        CommonResult commonResult = new CommonResult();
+        try {
+            int res = busRouteMapper.update(busRoute);
+            if (res == 1) {
+                commonResult.setStatus("OK");
+            } else {
+                commonResult.setStatus("Failed");
+            }
+            return commonResult;
+        } catch (DataAccessException e) {
+            commonResult.setStatus("Failed");
+            commonResult.setMsg(e.toString());
+            return commonResult;
+        }
     }
 }
