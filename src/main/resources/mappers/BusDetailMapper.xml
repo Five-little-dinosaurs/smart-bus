@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.smartbus.mapper.BusDetailMapper">
+    <insert id="insert" parameterType="com.example.smartbus.entity.BusDetail">
+        insert into bus_detail
+            (number, now_state, count, status)
+        values (#{number}, #{nowState}, #{count}, #{status})
+    </insert>
+    <update id="update">
+        update bus_route
+        <set>
+            <if test="nowState != null and nowState != ''">now_state=#{nowState},</if>
+            <if test="count != null and count != ''">count=#{count},</if>
+            <if test="status != null and status != ''">status=#{status},</if>
+        </set>
+        where number = #{number}
+    </update>
+    <delete id="deleteById" parameterType="string">
+        delete
+        from bus_detail
+        where number = #{number}
+    </delete>
+
+    <select id="findAll" resultMap="BusDetailResultMap">
+        SELECT *
+        from bus_detail
+    </select>
+    <select id="findById" parameterType="string" resultMap="BusDetailResultMap">
+        SELECT *
+        from bus_detail
+        where number = #{number}
+    </select>
+
+    <resultMap id="BusDetailResultMap" type="com.example.smartbus.entity.BusDetail">
+        <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+        <!-- property：主键在pojo中的属性名 -->
+        <!-- column：主键在数据库中的列名 -->
+        <id property="number" column="number"/>
+        <!-- 定义普通属性 -->
+        <result property="nowState" column="now_state"/>
+        <result property="count" column="count"/>
+        <result property="status" column="status"/>
+    </resultMap>
+</mapper>
