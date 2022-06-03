@@ -1,5 +1,6 @@
 package com.example.smartbus.service.Impl;
 
+import com.example.smartbus.dto.BusRouteDto;
 import com.example.smartbus.dto.CommonResult;
 import com.example.smartbus.entity.BusRoute;
 import com.example.smartbus.mapper.BusRouteMapper;
@@ -17,7 +18,7 @@ public class BusRouteServiceImpl implements BusRouteService {
     BusRouteMapper busRouteMapper;
 
     @Override
-    public List<BusRoute> findAll() {
+    public List<BusRouteDto> findAll() {
         return busRouteMapper.findAll();
     }
 
@@ -42,7 +43,6 @@ public class BusRouteServiceImpl implements BusRouteService {
             commonResult.setMsg(e.toString());
             return commonResult;
         }
-
     }
 
     @Override

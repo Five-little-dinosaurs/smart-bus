@@ -24,10 +24,6 @@
         from bus_route
         where id = #{id}
     </delete>
-    <select id="findAll" resultMap="BusRouteResultMap">
-        SELECT *
-        from bus_route
-    </select>
     <select id="findById" parameterType="int" resultMap="BusRouteResultMap">
         SELECT *
         from bus_route
@@ -38,7 +34,7 @@
         from bus_route
         where number = #{number}
     </select>
-    <resultMap id="BusRouteResultMap" type="com.example.smartbus.entity.BusRoute">
+    <resultMap id="BusRouteResultMap" type="com.example.smartbus.dto.BusRouteDto">
         <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
         <!-- property：主键在pojo中的属性名 -->
         <!-- column：主键在数据库中的列名 -->
@@ -50,6 +46,13 @@
         <result property="cash" column="cash"/>
         <result property="stateList" column="state_list"/>
         <result property="waitList" column="wait_list"/>
+        <result property="driverName" column="driverName"/>
     </resultMap>
+
+    <select id="findAll" resultMap="BusRouteResultMap">
+        select bus_route.id,bus_route.name,bus_route.number,bus_route.driver_id,bus_route.state_list,driver.name AS driverName
+        FROM bus_route,driver
+        WHERE bus_route.driver_id=driver.id
+    </select>
 
 </mapper>

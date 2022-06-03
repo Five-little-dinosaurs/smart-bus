@@ -1,5 +1,6 @@
 package com.example.smartbus.controller;
 
+import com.example.smartbus.dto.BusRouteDto;
 import com.example.smartbus.dto.CommonResult;
 import com.example.smartbus.entity.BusRoute;
 import com.example.smartbus.service.BusRouteService;
@@ -16,7 +17,7 @@ public class BusRouteController {
     BusRouteService busRouteService;
 
     @GetMapping
-    public List<BusRoute> findAll() {
+    public List<BusRouteDto> findAll() {
         return busRouteService.findAll();
     }
 
