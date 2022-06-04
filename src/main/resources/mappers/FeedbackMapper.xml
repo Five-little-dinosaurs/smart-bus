@@ -4,7 +4,7 @@
 <mapper namespace="com.example.smartbus.mapper.FeedbackMapper">
     <insert id="insert"></insert>
     <update id="update">
-        update driver
+        update feedback
         <set>
             <if test="time != null and time != ''">time=#{time},</if>
             <if test="thing != null and thing != ''">thing=#{thing},</if>

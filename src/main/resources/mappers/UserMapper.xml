@@ -23,7 +23,7 @@
         where name = #{name}
     </select>
     <select id="findAllDetail" resultType="com.example.smartbus.dto.UserDto">
-        select name, region, f.thing, punishment, status
+        select user.id ,name, region, f.thing, punishment, status
         from user
                  left join feedback f on user.id = f.user_id
                  left join user_detail on user.id = user_detail.id
