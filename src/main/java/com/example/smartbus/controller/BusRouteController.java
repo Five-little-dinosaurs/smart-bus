@@ -18,6 +18,7 @@ public class BusRouteController {
 
     @GetMapping
     public List<BusRouteDto> findAll() {
+        System.out.println("开始");
         return busRouteService.findAll();
     }
 
