@@ -31,7 +31,7 @@ public class AdminServiceImpl implements AdminService {
         String token = "";
         // 从数据库根据唯一的账号account搜索，返回客户类customer_back
         admin_back = adminMapper.findAdminByAccount(admin.getAccount());
-        // 如果返回的客户类为空或者密码不匹配，返回空串token。
+        // 如果返回的客户类为空或者密码不匹配，返回空串token。 
         if (admin_back == null || !Objects.equals(admin_back.getPassword(), admin.getPassword())) {
             adminDto.setToken(token);
             return adminDto;
